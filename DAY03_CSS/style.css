@@ -1,0 +1,63 @@
+* {
+	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#banner img {
+    width:100%;
+    height: 10rem;
+}
+
+#banner .banner-title {
+    width:100%;
+    position:absolute;
+    top:0;
+}
+
+h1 {
+    text-align: center;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    max-height: 50rem;
+}
+
+#sidebar .sidebar-option {
+    background-color: lightblue;
+    color: black;
+    height: 20px;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 100;
+}
+
+#registerBox {
+    background-color: rgb(215, 234, 246);
+    margin: auto;
+    justify-content: center;
+}
+
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    background-color: navy;
+    color: white;
+    width: 143px;
+    border: none;
+}
+
+footer {
+    background-color: lightblue;
+    color: navy;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+}

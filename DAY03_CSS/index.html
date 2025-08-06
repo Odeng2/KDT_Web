@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>3일차 Basic: 회원 가입 페이지</title>
+</head>
+
+<body>
+    <header>
+        <div id="banner">
+            <div class="banner-img">
+                <img src="./images/배너이미지.jpeg"/>
+            </div>
+            <div class="banner-title">
+                <h1>회원가입</h1>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- 섹션 #1. 사이드바 메뉴  -->
+        <div id="sidebar">
+            <div class="sidebar-option">로그인</div>
+            <div class="sidebar-option">도움말</div>
+            <div class="sidebar-option">약관</div>
+        </div>
+        
+        <!-- 메인 섹션 #2. 정보 압력 및 회원가입 -->
+        <div id="registerBox">
+            <form id="profileForm">
+
+                <!-- 사용자 이름 입력 -->
+                <label for="username">이름:</label>
+                <br/>
+                <input type="text" id="username" name="username" placeholder="이름 입력" maxlength="20" required>
+                <br/><br/>
+
+                <!-- 이메일 입력 -->
+                <label for="email">이메일:</label>
+                <br/>
+                <input type="email" id="email" name="email" placeholder="example@example.com" required>
+                <br/><br/>
+
+                <!-- 비밀번호 입력 -->
+                <label for="password">비밀번호:</label>
+                <br/>
+                <input type="password" id="password" name="password" placeholder="8자리 이상의 비밀번호 입력" minlength="8" required>
+                <br/><br/>
+
+                <!-- 성별 선택 -->
+                <label>성별:</label>
+                <br/>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">남성</label>
+                <input type="radio" id="female" name="gender" value="female" required>
+                <label for="female">여성</label>
+                <br/><br/>
+
+                <!-- 약관 동의 체크 -->
+                <input type="checkbox" id="agreement" name="agreement" value="agree" required>
+                <label for="male">약관에 동의합니다.</label>
+                <br/><br/>
+                
+                <!-- 회원가입 -->
+                <button type="submit">회원가입</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>&copy; 2025</strong> 3일차 Basic: 회원 관리 페이지 | 연락처: example@example.com</p>
+    </footer>
+</body>
+</html>
