@@ -1,8 +1,10 @@
 * {
+    font-family: Arial, sans-serif;
 	box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 
 #banner img {
     width:100%;
@@ -19,45 +21,51 @@ h1 {
     text-align: center;
 }
 
-#sidebar {
-    display: flex;
-    flex-direction: column;
-    max-height: 50rem;
-}
 
-#sidebar .sidebar-option {
+nav {   
+    margin-right: auto;    /* 3. 사이드바 겹침 해결  */
+} 
+
+nav ul li {
     background-color: lightblue;
     color: black;
-    height: 20px;
     width: 150px;
-    height: 40px;
     line-height: 40px;
-    margin-bottom: 100;
-}
-
-#registerBox {
-    background-color: rgb(215, 234, 246);
-    margin: auto;
-    justify-content: center;
+    margin-top: 10px;
+    margin-left: 5px;
 }
 
 
 main {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
+#profileForm {
+    position: absolute;    /* 1. 회색박스 가운데 정렬 => 가운데 정렬은 됐는데 푸터, 사이드바와 겹치는 현상 발생 */
+    background-color: rgb(235, 235, 235);
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 button {
-    background-color: navy;
+    background-color: rgba(1, 1, 113, 0.588);
     color: white;
     width: 143px;
     border: none;
+    padding: 5px 5px 5px 5px;
 }
 
 footer {
     background-color: lightblue;
     color: navy;
+
+    /* 2. 푸터 화면 아래로 내리기 */
     text-align: center;
-    line-height: 30px;
-    height: 30px;
+    position: fixed;
+    bottom: 0;
+    /* 푸터 화면 아래로 내리기 */
 }
