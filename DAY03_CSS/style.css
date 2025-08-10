@@ -1,10 +1,12 @@
 * {
-    font-family: Arial, sans-serif;
 	box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Pretendard", "Inter", "Roboto", "Segoe UI", "Noto Sans KR", Arial, sans-serif;
+}
 
 #banner img {
     width:100%;
@@ -18,7 +20,9 @@
 }
 
 h1 {
+    color: #0f172a;
     text-align: center;
+    margin-top: 20px;
 }
 
 
@@ -27,8 +31,8 @@ nav {
 } 
 
 nav ul li {
-    background-color: lightblue;
-    color: black;
+    background: #e6f2ff; /* 파스텔 하늘 */
+    color: #0f172a;
     width: 150px;
     line-height: 40px;
     margin-top: 10px;
@@ -44,23 +48,26 @@ main {
 
 #profileForm {
     position: absolute;    /* 1. 회색박스 가운데 정렬 => 가운데 정렬은 됐는데 푸터, 사이드바와 겹치는 현상 발생 */
-    background-color: rgb(235, 235, 235);
+    background-color: #f0f9ff;
     margin-left: auto;
     margin-right: auto;
+    padding: 15px 10px 15px 10px;
 }
 
 
 button {
-    background-color: rgba(1, 1, 113, 0.588);
-    color: white;
-    width: 143px;
+    background: #60a5fa;
+    color: #fff;
+    width: 150px;
     border: none;
     padding: 5px 5px 5px 5px;
+    display: block;
+    margin: 0 auto;
 }
 
 footer {
-    background-color: lightblue;
-    color: navy;
+    background: #e0f2fe;
+    color: #1e3a8a;
 
     /* 2. 푸터 화면 아래로 내리기 */
     text-align: center;
