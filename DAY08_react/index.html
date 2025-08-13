@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body>
+
+    <!-- React 시작하기 #3: ID가 root인 div 태그 추가 -->
+    <div id="root">
+        <!-- 요소들 추가해주기 -->
+    </div>
+
+    
+
+    <!-- React 시작하기 #1: React & React DOM -->
+    <!-- body의 하단에 넣는 것을 권장함. -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- React 시작하기 #2: Babel - 작성한 버전 이전의 js버전으로 자동으로 바꿔줌. -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+        // React 시작하기 #5: App 컴포넌트 추가
+        function App () {
+            return (
+                <h1>Hello, React!</h1>
+            )
+        }
+
+        // React 시작하기 #4: ID가 root인 노드에 App 컴포넌트를 렌더링 
+        ReactDOM.render(<App/>, document.getElementById("root"));
+    </script>
+</body>
+</html>
