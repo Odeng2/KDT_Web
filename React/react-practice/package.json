@@ -13,10 +13,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",    //npm start명령어를 동작시킬 수 있음.
+    "start": "react-scripts start",    
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"   //완료된 프로젝트에 절대 쓰지마!!
+    "eject": "react-scripts eject"   
   },
   "eslintConfig": {
     "extends": [
