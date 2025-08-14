@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+// import React from 'react';
 
 
 
@@ -95,28 +95,153 @@ import React from 'react';
 
 
 
-//예시: 엘리먼트 렌더링, Virtual DOM
+// //예시: 엘리먼트 렌더링, Virtual DOM
 
-function App() {
-  const arr1 = [
-    { id:1, name:"gildong", age:30},
-    { id:2, name:"gildong", age:30},
-    { id:3, name:"gildong", age:30},
-    { id:4, name:"gildong", age:30},
-    { id:5, name:"gildong", age:30},
-  ]
+// function App() {
+//   const arr1 = [
+//     { id:1, name:"gildong", age:30},
+//     { id:2, name:"gildong", age:30},
+//     { id:3, name:"gildong", age:30},
+//     { id:4, name:"gildong", age:30},
+//     { id:5, name:"gildong", age:30},
+//   ]
+//   return (
+//     <React.Fragment>
+//       <h1 className="">Hello, React!</h1>
+//       <h2 className="">Hello, React!</h2>
+//       <ul>
+//         <li>사과바나나</li>
+//         <li>사과바나나</li>
+//         <li>사과바나나</li>
+//         <li>사과바나나</li>
+//       </ul>
+//     </React.Fragment>
+//   );
+// }
+
+// export default App;
+
+
+
+// //8/14: Props
+
+// props = {userName: "gildong"}
+
+// function App() {
+//   const listData = [
+//     { imgURL: "./image1.jpg", title: "상품명1"},
+//     { imgURL: "./image2.jpg", title: "상품명2"},
+//     { imgURL: "./image3.jpg", title: "상품명3"},
+//     { imgURL: "./image4.jpg", title: "상품명4"},
+//     { imgURL: "./image5.jpg", title: "상품명5"},
+//     { imgURL: "./image6.jpg", title: "상품명6"},
+//     { imgURL: "./image7.jpg", title: "상품명7"},
+//     { imgURL: "./image8.jpg", title: "상품명8"},
+//   ]
+  
+//   return (
+//     <div className='card-list'>
+
+//       {/* /* 방법1 
+//       <Card data={listData[0]}/>
+//       <Card data={listData[1]}/>
+//       <Card data={listData[2]}/>
+//       <Card data={listData[3]}/>
+//       <Card data={listData[4]}/>
+//       <Card data={listData[5]}/>
+//       <Card data={listData[6]}/>
+//       <Card data={listData[7]}/> */}
+
+
+//       {/* 방법2 */}
+//       {
+//         listData.map((item) =>
+//           <Card kery={item.imgURL} data={data}/>
+//         )
+//       }
+//     </div>
+//   );
+// }
+
+// export default MainHeader;
+
+
+
+
+// //state 업데이트 예시 코드
+
+// import React, { Component } from "react";
+
+// class NameChanger extends Component {
+//   // constsructor: 클래스를 초기화함
+//   constructor(props) {
+//     super(props);
+//     // 초기 상태 설정
+//     this.state = {
+//       name: "나리",
+//     };
+//   }
+
+//   changeName = () => {
+//     // // 잘못된 방법 (state를 직접 수정)
+//     // this.state = {
+//     //   name: "둘리",
+//     // };
+
+//     // 올바른 방법
+//     this.setState({ 
+//       name: "둘리",
+//     });
+//     console.log(this.state.name);
+//   };
+
+//   render() {
+//     return (
+//       <div>
+//         <p>현재 이름: {this.state.name}</p>
+//         <button onClick={this.changeName}>이름 변경</button>
+//       </div>
+//     );
+//   }
+// }
+
+// export default NameChanger;
+
+
+
+// //Lifecycle 예제
+
+// import LifecycleDemo from "./example/lifecycleDemo";
+
+// function App() {
+//   return (
+//     <LifecycleDemo/>
+//   )
+// }
+
+// export default App;
+
+
+
+
+//
+
+// import HookDemo from './example/hookDemo';
+
+// function App () {
+//   return (
+//     <HookDemo/>
+//   )
+// }
+
+// export default App;
+
+import UseEffectDemo from './example/hookDemo';
+
+function App () {
   return (
-    <React.Fragment>
-      <h1 className="">Hello, React!</h1>
-      <h2 className="">Hello, React!</h2>
-      <ul>
-        <li>사과바나나</li>
-        <li>사과바나나</li>
-        <li>사과바나나</li>
-        <li>사과바나나</li>
-      </ul>
-    </React.Fragment>
-  );
+    <UseEffectDemo/>
+  )
 }
 
 export default App;
