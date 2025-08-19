@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 // import React from 'react';
 
@@ -236,12 +236,55 @@ import './App.css';
 
 // export default App;
 
-import UseEffectDemo from './example/hookDemo';
+// import UseEffectDemo from './example/hookDemo';
+
+// function App () {
+//   return (
+//     <UseEffectDemo/>
+//   )
+// }
+
+// export default App;
+
+// import React, { useState } from 'react';
+// import ChildComponent from './example/childComponent';
+
+// function App () {
+
+//   const [ parentState, setParentState ] = useState("초기값");
+
+//   const handleChangeFromParent = (dataFromChild) => {
+//     console.log(dataFromChild);
+//     setParentState(dataFromChild);
+//   }
+
+//   return (
+//     <>
+//       <h1>부모의 상태값 : {parentState}</h1>
+//       <ChildComponent 
+//       dataForChild={parentState}
+//       onChange={handleChangeFromParent}/>
+//     </>
+    
+//   );
+// }
+
+// export default App;
+
+
+
+import React from 'react';
+import CounterDemo from './components/examples/counterDemo';
+import ShowCounterDemo from './components/examples/showCounterDemo';
 
 function App () {
+
   return (
-    <UseEffectDemo/>
-  )
+    <>
+      <CounterDemo/>
+      <ShowCounterDemo/>
+    </>
+  );
 }
 
 export default App;
