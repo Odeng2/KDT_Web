@@ -236,18 +236,138 @@
 # print(fruitsDict)
 
 
-# 예제 18:
-import requests
+# # 예제 18:
+# import requests
 
-url = 'https://jsonplaceholder.typicode.com/posts/1'
-response = requests.get(url)
-# print(response)
-if response.status_code == 200:
-    data = response.json()
-    # print(data)
+# url = 'https://jsonplaceholder.typicode.com/posts/1'
+# response = requests.get(url)
+# # print(response)
+# if response.status_code == 200:
+#     data = response.json()
+#     # print(data)
     
-    print(f"게시물 ID: {data['id']}")
-    print(f"제목 : {data['title']}")
-    print(f"내용: {data['body']}")
-    print(f"작성자 ID: {data['userId']}")
+#     print(f"게시물 ID: {data['id']}")
+#     print(f"제목 : {data['title']}")
+#     print(f"내용: {data['body']}")
+#     print(f"작성자 ID: {data['userId']}")
     
+
+# # 8월 22일 예제 #1: 집합
+# fruits = {"사과", "바나나", "체리"}
+# numbers = set ([1, 2, 3, 2, 1])
+# print(numbers)
+# chars = set("hello")
+# print(chars)
+# empty_set = set()
+# not_empty_set = {}   # 빈 디겨너리. 집합이 아님.
+
+# squares = {x**2 for x in range(1, )}
+# print(squares)
+
+
+
+# # 예제 2:
+# fruits = {"사과", "바나나", "체리"}
+# fruits.add('딸기')
+# fruits.update(['망고', '블루베리'])
+# print(fruits)
+# fruits.remove('바나나')
+# fruits.remove('바나나2')
+# fruits.discard('딸기2')
+# print(fruits)
+# popped = fruits.pop()
+# print(f'popped : {popped}')
+# fruits.clear()
+# print(fruits)
+
+
+# # 예제 3: 
+# numbers = {5, 4, 3, 2, 1}
+# for num in numbers:
+#     print(num)
+
+# for num in sorted(numbers):
+#     print(num)
+
+
+# # 예제 4: 합집합, 교집합, 차집합
+# class_a_hobbies = {"축구", "농구", "독서", "게임", "요리"}
+# class_b_hobbies = {"야구", "농구", "독서", "그림", "요리"}
+
+# common_hobbies = class_a_hobbies & class_b_hobbies
+# print(common_hobbies)
+
+# only_a_hobbies = class_a_hobbies - class_b_hobbies
+# print(only_a_hobbies)
+
+# all_hobbies = class_a_hobbies | class_b_hobbies
+# print(all_hobbies)
+
+
+# # 예제 5:
+# numbers = [1, 2, 3, 1, 2, 123, 1, 2, 1, 3]
+# unique_numbers = list(set(numbers))
+# print(unique_numbers)
+
+# result = []
+# unique_set = set()
+# for num in numbers:
+#     if num not in unique_set:
+#         unique_set.add(num)
+#         result.append(num)
+
+
+# # 예제 6:
+# a = True
+# b = Falsec = True
+
+# print(a and b or c)
+# print(a and (b or c))
+
+
+# # 예제 7:
+# result = 2**3*4+5
+# print(result)
+
+
+# # 예제 8:
+# result = True or False and not True
+# print(result)
+
+
+# # 예제 9:
+# rain_forecast = True
+# umbrella_at_home = False
+
+# if rain_forecast:
+#     print("비가 올 예정입니다.")
+#     if umbrella_at_home:
+#         print("우산을 가지고 나갑니다.")
+#     else:
+#         print("우산을 구매해야 합니다.")
+    
+
+# # 예제 10: 삼항 연산자
+# x = -10
+
+# abs_value = x if x>=0 else -x
+# test_result = '합격' if score>=70 else '불합격'
+
+# def abs_fuc(x):
+#     if x>=0:
+#         return x
+#     else:
+#         return -x
+    
+
+# # 예제 11:
+# temperature = 25
+
+# message = '더운 날씨입니다' if temperature>30 else "적당한 날씨입니다" if temperature>20 else '추운 날씨입니다'
+# print(message)
+
+
+# 예제 12: lambda
+numbers = [1, 2, 3, 4, 5]
+squars = list(map(lambda x:x**2, numbers))
+print(squars)
