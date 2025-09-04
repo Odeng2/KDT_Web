@@ -12,3 +12,17 @@ __pycache__/
 *.tar.gz
 *.pt
 *.onnx
+myenv/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.dylib
+*.so
+*.whl
+*.zip
+*.tar
+*.tar.gz
+*.pt
+*.onnx
