@@ -271,40 +271,127 @@
 #         return text, parsed_info,processed
     
 
-# CRNN -==================================================
+# # CRNN -==================================================
+# # import torch
+# # import numpy as np
+
+# # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# # class SynthecticTextDataset(Dataset):
 # import torch
+# import torch.nn as nn
+# import torch.optim as optim
+# import torch.nn.functional as F
+# from torch.utils.data import Dataset, DataLoader
+# import torchvision.transforms as transforms
 # import numpy as np
+# import matplotlib.pyplot as plt
+# from PIL import Image, ImageDraw, ImageFont
+# import string
+# import random
 
-# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# class CRNN(nn.Module):
+#     def __init__(self, img_height,img_width, num_chars, num_classes, rnn_hidden = 256):
+#         super().__init__
 
-# class SynthecticTextDataset(Dataset):
+#         self.img_height = img_height
+#         self.img_width = img_width
+#         self.num_chars = num_chars
+#         self.num_classes = num_classes
+
+#         self.cnn = nn.Sequential(
+#             nn.Conv2d(1,64,kernel_size=3,stride=1,padding=1),
+#             nn.BatchNorm2d(64),
+#             nn.ReLU(inplace = True),
+#             nn.MaxPool2d(2,2),
+#         )
+    
+
+
+
+# TrOCR =========================================
+
+from transformers import Trocrprocessor, VisionEncoderDecoderModel
+from PIL import Image
+import requests 
 import torch
-import torch.nn as nn
-import torch.optim as optim
-import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
-import torchvision.transforms as transforms
-import numpy as np
 import matplotlib.pyplot as plt
-from PIL import Image, ImageDraw, ImageFont
-import string
-import random
+import numpy as np
 
-class CRNN(nn.Module):
-    def __init__(self, img_height,img_width, num_chars, num_classes, rnn_hidden = 256):
-        super().__init__
+class TrOCRSystem:
+    def __init__(self, model_name="microsoft/trocr-base-printed")
+        print(f"TrOCR 모델 로딩 중: {model_name}")
 
-        self.img_height = img_height
-        self.img_width = img_width
-        self.num_chars = num_chars
-        self.num_classes = num_classes
+        self.processor = TrOCRProcessor.from_pretrained(model_name)
+        self.model = VisionEncoderDecoderModel.from_pretrained(model_name)
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.model.to(self.device)
 
-        self.cnn = nn.Sequential(
-            nn.Conv2d(1,64,kernel_size=3,stride=1,padding=1),
-            nn.BatchNorm2d(64),
-            nn.ReLU(inplace = True),
-            nn.MaxPool2d(2,2),
-        )
+        print(f"모델 로딩 완료 (Device: {self.device})")
+
+    def extract_text(self, image, return_confidence=False):
+        if isinstance(image, np.ndarray):
+            image = Image.fromarray(image)
+        elif isinstance(image, str):
+            if image.startswith(('http://', 'https://')):
+                image = Image.open(requests.get(image, stream=True).raw)
+            else:
+                image = Image.open(image)
+
+        pixel_values = self.processor(image, return_tensors="pt").pixel_values
+
+        pixel_values = pixel_values.to(self.device)
+
+        with torch.no_grad():
+            if return_confidence:
+                outputs = self.model.generate(
+                    pixel_values,
+                    return_dict_in_generate=True,
+                    output_scores=True,
+                    max_length=256
+                )
+                generated_ids = outputs.sequences
+                token_scores = outputs.scores
+            else:
+                generated_ids = self.model.generate(pixel_values)
+                generated_text = self.processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
+            
+            if return_confidence:
+                if token_scores:
+                    token_probs = []
+                    for score in token_scores:
+                        probs = torch.softmax(score, dim=-1)
+                        max_prob = torch.max(probs).item()
+                        token_probs.append(max_prob)
+
+                    confidence = sum(token_probs) / len(token_probs) if token_probs else 0.0
+
+                    print(f" 신뢰도 계산 상세:")
+                    print(f" 토큰별 확률: {[f'{p:.3f}' for p in token_probs]}")
+                    print(f" 평균 신뢰도: {confidence:.3f}")
+                else:
+                    confidence = 0.5
+                    print(" 실제 확률 정보 없음, 기본값 사용")
+                
+                return generated_text, confidence
+
+            return generated_text
+        
+    def batch_extract(self, images):
+
+        results = []
+
+        for i, image in enumerate(images):
+            print(f"처리 중: {i+1}/{len(images)}")
+            try:
+                text = self.extract_text(image)
+                results.append(text)
+            except Exception as e:
+                print(f"이미지 {i+1} 처리 실패: {e}")
+                results.append("")
+
+        return results
     
-
     
+    def compare_models(self, image):
+          
