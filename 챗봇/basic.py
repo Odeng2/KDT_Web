@@ -322,8 +322,9 @@
 #             return f"오류가 발생했습니다: {str(e)}"
         
 
-
-# api_key = os.environ.get("OPENAI_API_KEY")
+# # os.environ.get을 사용하기 전에, 환경 변수 설정 필요함(terminal):
+# # export OPENAI_API_KEY=<api키>
+# api_key = os.environ.get("OPENAI_API_KEY") 
 # advanced_bot = AdvancedChatbot(api_key)
 # advanced_bot.set_system_prompt("당신은 친절한 비서입니다. 함수 호출을 통해 날씨 정보, 계산 결과, 현재 시간을 조회할 수 있습니다.")
 
